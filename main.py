@@ -48,5 +48,7 @@ output.mkdir(parents=True, exist_ok=True)
 with tarfile.TarFile(temp) as tar:
     if sys.version_info >= (3, 12):
         tar.extractall(output, filter="data")
+    else:
+        tar.extractall(output)
 
 os.unlink(temp)
